@@ -1,0 +1,651 @@
+:root {
+  --color-bg-body: #1D1D1B;
+  --color-p-text: #EAE4DA;
+  --color-title2a: #808BC5;
+  --color-bg-card: #245E55;
+  --color-title1: #EAC119;
+  --color-a: #EAA7C7;
+  --color-title2b: #ED773C;
+  --sky: #9ED6DF;
+  --color-ahover: #C63F3E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-body);
+  color: var(--color-p-text);
+   font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0;
+}
+
+body a{
+  text-decoration: none;
+}
+
+
+
+
+
+/* NAV */
+
+nav {
+  background-color: var(--color-p-text);
+  color: var(--color-bg-body) !important;
+  padding: 1rem;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Assure que la navbar est au-dessus des autres éléments */
+}
+
+nav a {
+  color: var(--color-bg-body);
+  text-decoration: none;
+}
+
+.nav-ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+    
+}
+
+
+
+
+
+/* WELCOME */
+
+.welcome {
+  scroll-margin-top: 8rem; /* Ajuste selon la hauteur réelle de ta navbar */
+
+  text-align: center;
+  margin: 6rem;
+}
+
+.welcome-title {
+  font-size: 3rem;
+  color: var(--color-title1);
+  margin-bottom: 0.5rem; /* Ajuste la valeur selon le rendu souhaité */
+}
+
+.welcome-description {
+  font-size: 2rem;
+  color: var(--color-p-text);
+  margin-bottom: 1rem;
+}
+
+.welcome a{
+    color: var(--color-a);
+    text-decoration: none;
+      transition: all 0.3s ease-in-out;
+
+    
+}
+
+.welcome a:hover {
+  color: var(--color-ahover);
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+
+.layers1 {
+  position: relative;
+  width: 100%;
+  min-height: 220px; /* Ajuste selon la hauteur de tes layers */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: -40% auto -30% auto;
+  z-index: -2;
+}
+
+.spacer{
+  aspect-ratio: 900 / 450;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 0;
+  z-index: -1;
+}
+
+.layer1{
+  background-image: url("./assets/Background/layer1.svg");
+
+
+}
+
+.layer2{
+  background-image: url("./assets/Background/layer2.svg");
+
+}
+
+.project-title1{
+  position: absolute; /* Ajoute cette ligne */
+  top: 49%;           /* Centre verticalement */
+  left: 50%;          /* Centre horizontalement */
+  transform: translate(-50%, -50%);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-title1);
+  text-align: center;
+  z-index: 2;         /* Au-dessus des layers */
+  pointer-events: none;
+  white-space: nowrap;
+  margin: 0;     /* Supprime toute marge */
+}
+
+
+
+
+
+/* PROJECTS */
+
+.github-link {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--color-p-text);
+  text-decoration: none;
+}
+
+.github-link a {
+  color: var(--color-a);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.github-link a:hover {
+  color: var(--color-ahover);
+  transition: all 0.3s ease-in-out;
+}
+
+.projects {
+  scroll-margin-top: 7rem; /* Ajuste selon la hauteur réelle de ta navbar */
+
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto auto;
+}
+
+.projects-title {
+  font-size: 3rem;
+  color: var(--color-title1);
+  text-align: center;
+
+}
+
+.projects-title1 {
+  font-size: 3rem;
+  color: var(--color-title1);
+  text-align: center;
+  margin-top: -3rem;
+  margin-bottom: -1.2rem;
+
+}
+
+.project-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center; /* Les cartes commencent à gauche */
+  gap: 3rem;
+  padding: 0;
+  margin: 2rem auto;           /* Centre le conteneur dans la page */
+  max-width: 750px;            /* Ajuste selon la largeur de tes cartes et du gap */
+}
+
+.project-card {
+  position: relative;
+  z-index: 1; /* Ajoute cette ligne */
+  overflow: hidden;
+  /* SUPPRIME la background-image ici */
+  background: none;
+  color: var(--color-p-text);
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  width: 88%;
+  max-width: 750px;      /* Largeur maximale */
+  min-width: 320px;      /* Largeur minimale pour éviter que ça devienne trop petit */
+  height: 200px;
+  text-align: center;
+  margin: auto;             /* Le gap gère l'espacement */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+    text-decoration: none;
+
+
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* background-image: url("./assets/bite.jpg");  <-- SUPPRIME cette ligne */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;
+  filter: blur(0px);
+  transition: filter 0.3s, opacity 0.3s;
+  pointer-events: none;
+  border: #EAC119 solid 4px;
+    text-decoration: none;
+
+}
+
+/* Ajoute une règle pour chaque carte */
+#project1::before {
+  background-image: url("./assets/projet1-image.png");
+}
+
+#project2::before {
+  background-image: url("./assets/projet2-image.png");
+}
+
+#project3::before {
+  background-image: url("./assets/projet3-image.png");
+}
+
+.project-card:hover::before {
+  filter: blur(6px);
+  opacity: 0.5; /* L'image devient plus transparente */
+  border: none;
+    text-decoration: none;
+
+}
+
+.project-card > * {
+  position: relative;
+  z-index: 1;
+    text-decoration: none;
+
+}
+
+.project-card h3 {
+    opacity: 0%;
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0; /* Petite marge en bas, pas de marge négative */
+  text-align: center;
+transition: all 0.3s ease-in-out;
+text-decoration: none;
+color: inherit;
+
+
+}
+
+.project-card p {
+    opacity: 0%;
+    width: 80%;
+  margin: 0;
+  text-align: center;
+transition: all 0.3s ease-in-out;
+text-decoration: none;
+color: inherit;
+
+}
+
+.project-card:hover {
+  cursor: pointer;
+  scale: 1.05;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 3px 6px 0px var(--color-title1);
+  text-decoration: none;
+
+}
+
+
+.project-card:hover h3,
+.project-card:hover p {
+  opacity: 100%;
+  scale: 1.05;
+transition: all 0.3s ease-in-out;
+text-decoration: none;
+color: inherit;
+}
+
+.project-card a,
+.project-card:hover a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.project-card h3 a,
+.project-card p a,
+.project-card:hover h3 a,
+.project-card:hover p a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+
+
+@media (max-width: 800px) {
+  .project-card {
+    width: 100%;
+    max-width: 450px;;
+    min-width: 220px;
+    margin: auto;
+  }
+}
+
+
+
+
+
+
+.layers3 {
+  position: relative;
+  width: 100%;
+  min-height: 220px; /* Ajuste selon la hauteur de tes layers */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: -30% auto -40% auto;
+  z-index: -2;
+}
+
+.spacer{
+  aspect-ratio: 900 / 450;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 0;
+  z-index: -1;
+}
+
+.layer5{
+  background-image: url("./assets/Background/layer5.svg");
+
+
+}
+
+.layer6{
+  background-image: url("./assets/Background/layer6.svg");
+
+}
+
+.project-title3{
+  position: absolute; /* Ajoute cette ligne */
+  top: 49%;           /* Centre verticalement */
+  left: 50%;          /* Centre horizontalement */
+  transform: translate(-50%, -50%);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-title1);
+  text-align: center;
+  z-index: 2;         /* Au-dessus des layers */
+  pointer-events: none;
+  white-space: nowrap;
+  margin: 0;     /* Supprime toute marge */
+}
+
+
+
+
+
+/* skills */
+
+.skills {
+  max-width: 750px;
+  margin: 10% auto 0 auto;
+  padding: 2rem 1rem;
+  background: rgba(36, 94, 85, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  z-index: 5;
+}
+
+.skills-title {
+  font-size: 2.5rem;
+  color: var(--color-title1);
+  text-align: center;
+  margin-bottom: 2rem;
+    z-index: 5;
+
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+    z-index: 5;
+
+}
+
+.skill-card {
+  background: var(--color-bg-card);
+  border-radius: 0.7rem;
+  padding: 1.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  z-index: 5;
+  transition: all 0.3s ease-in-out;
+
+
+}
+
+.skill-card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.skill-label {
+  font-size: 1.3rem;
+  color: var(--color-p-text);
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 18px;
+  background: #222;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 9px 0 0 9px;
+  transition: width 1s cubic-bezier(.4,2,.6,1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .skills {
+    padding: 1rem 0.2rem;
+  }
+  .skill-card {
+    padding: 1rem 0.7rem;
+  }
+  .skills-title {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+
+
+
+.layers2 {
+  position: relative;
+  width: 100%;
+  min-height: 220px; /* Ajuste selon la hauteur de tes layers */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: -30% auto -40% auto;
+  z-index: -2;
+}
+
+.spacer{
+  aspect-ratio: 900 / 450;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 0;
+  z-index: -1;
+}
+
+.layer3{
+  background-image: url("./assets/Background/layer3.svg");
+
+
+}
+
+.layer4{
+  background-image: url("./assets/Background/layer4.svg");
+
+}
+
+.about-title1{
+  position: absolute; /* Ajoute cette ligne */
+  top: 45%;           /* Centre verticalement */
+  left: 50%;          /* Centre horizontalement */
+  transform: translate(-50%, -50%);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-p-text);
+  text-align: center;
+  z-index: 2;         /* Au-dessus des layers */
+  pointer-events: none;
+  white-space: nowrap;
+  margin: 0;     /* Supprime toute marge */
+}
+
+
+
+
+
+/* ABOUT */
+
+.about {
+  max-width: 750px;;
+  margin: -40% auto 0 auto;
+  scroll-margin-top: 6rem; /* Ajuste selon la hauteur réelle de ta navbar */
+
+}
+
+
+.about-description {
+  font-size: 2rem;
+  color: var(--color-p-text);
+  text-align: center;
+  max-width: 100%;
+  margin: clamp(2rem, 8vw, 6rem) auto 0 auto;
+}
+
+
+
+
+
+/* CONTACT */
+
+.contact {
+  scroll-margin-top: 8rem; /* Ajuste selon la hauteur réelle de ta navbar */
+  max-width: 750px;;
+  margin: 10rem auto;
+}
+
+.contact-title {
+  font-size: 3rem;
+  color: var(--color-title1);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
+  width: 80%;
+  gap: 2rem;
+}
+
+.contact label {
+    font-size: 1.2rem;
+    color: var(--color-title1);
+    margin-bottom: -1rem;
+}
+
+.contact input{
+    width: 100%;
+    padding: 0.5rem;
+    margin: auto;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--color-p-text);
+    color: var(--color-bg-body);
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-style: italic;
+}
+
+textarea{
+    width: 100%;
+    height: 150px;
+    padding: 0.5rem;
+    margin: auto;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--color-p-text);
+    color: var(--color-bg-body);
+}
+.contact-button{
+    background-color: var(--color-ahover);
+    color: var(--color-p-text);
+    font-size: 1.2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    padding: 1rem 0rem;
+    width: 40%;
+    margin: auto;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-button:hover{
+    background-color: var(--color-p-text);
+    color: var(--color-ahover);
+    scale: 1.07;
+    transition: all 0.3s ease-in-out;
+}

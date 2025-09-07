@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet 1</title>
+  <link rel="stylesheet" href="styles-p1.css">
+
+  <!-- Google Fonts : -->
+
+  <!-- Font : DM sans -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header> 
+        <nav class="navbar">
+           
+                <ul class="nav-ul">
+                    <li><a href="index.html#welcome" class="nav-accueil">Accueil</a></li>
+                    <li><a href="index.html#projects" class="nav-projets">Projets</a></li>
+                    <li><a href="index.html#about" class="nav-a-propos">À propos</a></li>
+                    <li><a href="index.html#contact" class="nav-contact">Contact</a></li>
+                </ul>
+            
+        </nav>   
+
+
+
+
+    </header>
+
+    <main>
+        
+        <div class="BG1">
+        <h2 class="projects-title1">Analyseur de texte</h2>
+        <p class="projects-description1">
+    Un outil qui analyse le texte d'un fichier .txt et fournit des statistiques telles que le nombre de mots, de lignes, les 5 mots les plus utilisés, ainsi que leur fréquence d'utilisation.
+  </p>
+        </div>
+
+        <div class="code-python">
+
+  <h3>Code Python :</h3>
+  <pre><code class="language-python">
+from collections import Counter
+
+fichier = input("Entrez le chemin du fichier texte à analyser : ")
+
+try:
+    with open(fichier, "r") as f:
+        contenu = f.read()
+
+    lignes = contenu.splitlines()
+    nb_lignes = len(lignes)
+
+    texte_nettoye = contenu
+    for char in ".,!?;:()[]{}\"":
+        texte_nettoye = texte_nettoye.replace(char, "")
+
+    mots = texte_nettoye.split()
+    nb_mots = len(mots)
+
+    compteur = Counter(mots)
+    
+    print("\n----- Résultats -----")
+    print(f"Fichier analysé : {fichier}")
+    print(f"Nombre de lignes : {nb_lignes}")
+    print(f"Nombre de mots : {nb_mots}")
+
+    if nb_mots > 0:
+        mot_plus_frequent = compteur.most_common(1)[0]
+        print(f"Mot le plus fréquent : \"{mot_plus_frequent[0]}\" ({mot_plus_frequent[1]} fois)")
+        print("\nTop 5 mots :")
+        for mot, freq in compteur.most_common(5):
+            print(f"  - {mot} : {freq}")
+
+    else:
+        print("Aucun mot trouvé dans ce fichier.")
+        
+except FileNotFoundError:
+    print("Erreur : le fichier n'existe pas !")
+  </code></pre>
+        </div>
+
+        <div class="download-section">
+  <a href="Analyseur_Texte.py" download class="download-btn">Télécharger le script Python</a>
+  <p>Pour utiliser ce script : télécharge le fichier, puis lance-le avec Python sur ton ordinateur, ou colle le dans ton IDE (ex : Visual Studio Code).</p>
+        </div>
+
+        </div>
+    </main>
+</body>
+</html>

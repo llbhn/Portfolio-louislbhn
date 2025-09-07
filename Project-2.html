@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet 2</title>
+  <link rel="stylesheet" href="styles-p1.css">
+
+  <!-- Google Fonts : -->
+
+  <!-- Font : DM sans -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header> 
+        <nav class="navbar">
+           
+                <ul class="nav-ul">
+                    <li><a href="index.html#welcome" class="nav-accueil">Accueil</a></li>
+                    <li><a href="index.html#projects" class="nav-projets">Projets</a></li>
+                    <li><a href="index.html#about" class="nav-a-propos">À propos</a></li>
+                    <li><a href="index.html#contact" class="nav-contact">Contact</a></li>
+                </ul>
+            
+        </nav>   
+
+
+
+
+    </header>
+
+    <main>
+        
+        <div class="BG1">
+        <h2 class="projects-title1">Jeu du Morpion</h2>
+        <p class="projects-description1">
+    Un jeu de morpion où l'utilisateur joue contre une IA.
+  </p>
+        </div>
+
+        <div class="code-python">
+
+  <h3>Code Python :</h3>
+  <pre><code class="language-python">
+
+# Jeu du Morpion - contre l'ordinateur
+
+import random
+
+# Initialisation du plateau (une liste de 9 cases vides)
+plateau = [" " for _ in range(9)]
+
+def afficher_plateau():
+    """Affiche le plateau du morpion avec les numéros des cases libres"""
+    print()
+    for i in range(9):
+        case = plateau[i] if plateau[i] != " " else str(i+1)
+        end_char = " | " if (i % 3) != 2 else "\n"
+        print(case, end=end_char)
+        if i in [2,5]:
+            print("---------")
+    print()
+
+def verifier_victoire(symbole):
+    """Vérifie si le joueur avec 'symbole' a gagné"""
+    combinaisons = [
+        (0,1,2), (3,4,5), (6,7,8),  # lignes
+        (0,3,6), (1,4,7), (2,5,8),  # colonnes
+        (0,4,8), (2,4,6)            # diagonales
+    ]
+    for a,b,c in combinaisons:
+        if plateau[a] == plateau[b] == plateau[c] == symbole:
+            return True
+    return False
+
+def plateau_plein():
+    """Vérifie si le plateau est plein"""
+    return " " not in plateau
+
+def coup_ia():
+    """L'IA choisit une case libre au hasard"""
+    cases_libres = [i for i in range(9) if plateau[i] == " "]
+    return random.choice(cases_libres)
+
+# Les Symboles : 
+joueur_humain = "X"
+joueur_ia = "O"
+
+while True:
+    afficher_plateau()
+    # Tour du joueur humain
+    try:
+        coup = int(input(f"Votre tour (joueur {joueur_humain}), choisissez une case (1-9) : ")) - 1 # -1 vu que c'est in range(9) (donc de 0-8)
+        if coup < 0 or coup > 8 or plateau[coup] != " ":
+            print("Case invalide, réessayez.")
+            continue
+        plateau[coup] = joueur_humain
+    except ValueError:
+        print("Veuillez entrer un nombre valide.")
+        continue
+
+    if verifier_victoire(joueur_humain):
+        afficher_plateau()
+        print("Vous avez gagné !")
+        break
+
+    if plateau_plein():
+        afficher_plateau()
+        print("Match nul !")
+        break
+
+    # Tour de l'IA
+    print("Tour de l'ordinateur...")
+    ia_move = coup_ia()
+    plateau[ia_move] = joueur_ia
+
+    if verifier_victoire(joueur_ia):
+        afficher_plateau()
+        print("L'ordinateur a gagné !")
+        break
+
+    if plateau_plein():
+        afficher_plateau()
+        print("Match nul !")
+        break
+
+
+  </code></pre>
+        </div>
+
+        <div class="download-section">
+  <a href="Jeu_Morpion_IA.py" download class="download-btn">Télécharger le script Python</a>
+  <p>Pour utiliser ce script : télécharge le fichier, puis lance-le avec Python sur ton ordinateur, ou colle le dans ton IDE (ex : Visual Studio Code).</p>
+        </div>
+
+        </div>
+    </main>
+</body>
+</html>

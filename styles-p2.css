@@ -1,0 +1,130 @@
+:root {
+  --color-bg-body: #1D1D1B;
+  --color-p-text: #EAE4DA;
+  --color-title2a: #808BC5;
+  --color-bg-card: #245E55;
+  --color-title1: #EAC119;
+  --color-a: #EAA7C7;
+  --color-title2b: #ED773C;
+  --sky: #9ED6DF;
+  --color-ahover: #C63F3E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-body);
+  color: var(--color-p-text);
+   font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0;
+}
+
+
+
+
+
+/* NAV */
+
+nav {
+  background-color: var(--color-p-text);
+  color: var(--color-bg-body) !important;
+  padding: 1rem;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Assure que la navbar est au-dessus des autres éléments */
+}
+
+nav a {
+  color: var(--color-bg-body);
+  text-decoration: none;
+}
+
+.nav-ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+    
+}
+
+.BG1 {
+  background-color: var(--color-bg-body);
+  color: var(--color-p-text);
+  width: 50%;
+  padding: 2rem;
+  margin-top: 2%; /* Pour compenser la hauteur de la navbar */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.BG1 h2 {
+  font-size: 300%;
+  margin-bottom: 0.5rem;
+}
+
+.BG1 p {
+  font-size: 120%;
+  line-height: 1.6;
+}
+
+.code-python {
+  background-color: var(--color-p-text);
+  width: 50%;
+  color: var(--color-bg-body);
+  padding: 2rem;
+  margin-top: 1%; /* Pour compenser la hauteur de la navbar */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3%;
+}
+
+.code-python h3{
+    text-align: center;
+    font-size: 200%;
+}
+
+.language-python {
+    text-align: left;
+}
+
+.download-section {
+  text-align: center;
+  margin: 2% 0;
+}
+
+.download-section p {
+  font-size: 100%;
+  margin-bottom: 1rem;
+  width: 50%;
+  margin: auto;
+}
+
+.download-btn {
+  background-color: var(--color-bg-card);
+  color: var(--color-p-text);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-bottom: 1rem; /* Optionnel, espace en dessous */
+  display: inline-block;
+}
+
+.download-btn:hover {
+  background-color: var(--color-p-text);
+  color: var(--color-bg-body);
+  text-decoration: none;
+}
