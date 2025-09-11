@@ -268,6 +268,10 @@ nav a {
   background-image: url("./assets/projet3-image.png");
 }
 
+#project4::before {
+  background-image: url("./assets/projet4-image.png");
+}
+
 .project-card:hover::before {
   filter: blur(6px);
   opacity: 0.5; /* L'image devient plus transparente */

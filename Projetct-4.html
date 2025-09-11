@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet 4</title>
+  <link rel="stylesheet" href="styles-p1.css">
+
+  <!-- Google Fonts : -->
+
+  <!-- Font : DM sans -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header> 
+        <nav class="navbar">
+           
+                <ul class="nav-ul">
+                    <li><a href="index.html#welcome" class="nav-accueil">Accueil</a></li>
+                    <li><a href="index.html#projects" class="nav-projets">Projets</a></li>
+                    <li><a href="index.html#about" class="nav-a-propos">À propos</a></li>
+                    <li><a href="index.html#contact" class="nav-contact">Contact</a></li>
+                </ul>
+            
+        </nav>   
+
+
+
+
+    </header>
+
+    <main>
+        
+        <div class="BG1">
+        <h2 class="projects-title4">Outil de cryptographie</h2>
+        <p class="projects-description1">
+    Un outil de cryptographie qui permet de chiffrer et déchiffrer des messages à l'aide d'une clé secrète.
+  </p>
+        </div>
+
+        <div class="code-python">
+
+  <h3>Code Python :</h3>
+  <pre><code class="language-python">
+
+from cryptography.fernet import Fernet
+
+# Générer une clé et l'enregistrer dans un fichier
+key = Fernet.generate_key()
+with open("secret.key", "wb") as key_file:
+    key_file.write(key)
+
+# Charger la clé
+with open("secret.key", "rb") as key_file:
+    key = key_file.read()
+
+f = Fernet(key)
+
+# Texte à chiffrer
+message = input("Entrez un message à chiffrer : ").encode()
+
+# Chiffrement
+token = f.encrypt(message)
+print("Message chiffré :", token)
+
+# Déchiffrement
+decrypted = f.decrypt(token)
+print("Message déchiffré :", decrypted.decode())
+
+# Afficher la clé utilisée
+print("Clé utilisée (base64) :", key.decode())
+
+
+
+  </code></pre>
+        </div>
+
+        <div class="download-section">
+  <a href="cryptographie_outil.py" download class="download-btn">Télécharger le script Python</a>
+  <p>Pour utiliser ce script : télécharge le fichier, puis lance-le avec Python sur ton ordinateur, ou colle le dans ton IDE (ex : Visual Studio Code).</p>
+        </div>
+
+        </div>
+    </main>
+</body>
+</html>
