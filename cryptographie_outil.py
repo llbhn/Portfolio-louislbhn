@@ -1,42 +1,26 @@
 from cryptography.fernet import Fernet
 
-# Génération d'une clé et sauvegarde dans un fichier
-def generate_key(file_path):
-    key = Fernet.generate_key()
-    with open(file_path, 'wb') as key_file:
-        key_file.write(key)
-    print(f"Clé générée et sauvegardée dans {file_path}")
+# Générer une clé et l'enregistrer dans un fichier
+key = Fernet.generate_key()
+with open("secret.key", "wb") as key_file:
+    key_file.write(key)
 
-# Chargement de la clé depuis un fichier
-def load_key(file_path):
-    with open(file_path, 'rb') as key_file:
-        return key_file.read()
+# Charger la clé
+with open("secret.key", "rb") as key_file:
+    key = key_file.read()
 
-# Chiffrement du message
-def encrypt_message(message, key):
-    f = Fernet(key)
-    return f.encrypt(message.encode())
+f = Fernet(key)
 
-# Déchiffrement du message
-def decrypt_message(encrypted_message, key):
-    f = Fernet(key)
-    return f.decrypt(encrypted_message).decode()
+# Texte à chiffrer
+message = input("Entrez un message à chiffrer : ").encode()
 
-# === Programme principal ===
-key_file_path = "secret.txt"
+# Chiffrement
+token = f.encrypt(message)
+print("Message chiffré :", token)
 
-# Générer une clé si nécessaire
-try:
-    key = load_key(key_file_path)
-except FileNotFoundError:
-    generate_key(key_file_path)
-    key = load_key(key_file_path)
+# Déchiffrement
+decrypted = f.decrypt(token)
+print("Message déchiffré :", decrypted.decode())
 
-print(f"Clé utilisée : {key}")
-
-message = input("Entrez le message à chiffrer: ")
-encrypted_message = encrypt_message(message, key)
-print(f"Message chiffré: {encrypted_message}")
-
-decrypted_message = decrypt_message(encrypted_message, key)
-print(f"Message déchiffré: {decrypted_message}")
+# Afficher la clé utilisée
+print("Clé utilisée (base64) :", key.decode())
