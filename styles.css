@@ -158,7 +158,8 @@ nav a {
 
 .github-link {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
+  margin-top: -40rem;
   font-size: 1.2rem;
   color: var(--color-p-text);
   text-decoration: none;
@@ -222,7 +223,7 @@ nav a {
   box-sizing: border-box;
   border-radius: 0.5rem;
   width: 88%;
-  max-width: 750px;      /* Largeur maximale */
+  max-width: 650px;      /* Largeur maximale */
   min-width: 320px;      /* Largeur minimale pour éviter que ça devienne trop petit */
   height: 200px;
   text-align: center;
@@ -270,6 +271,10 @@ nav a {
 
 #project4::before {
   background-image: url("./assets/projet4-image.png");
+}
+
+#project5::before {
+  background-image: url("./assets/projet5-image.png");
 }
 
 .project-card:hover::before {
