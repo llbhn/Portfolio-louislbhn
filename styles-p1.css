@@ -14,12 +14,21 @@
     font-size: 1rem;
     line-height: 1.4;
     margin: 0.5rem auto;
-    text-align: left;
+    text-align: center;
   }
   .code-python {
-    width: 98vw;
-    padding: 0.7rem;
-    font-size: 0.95rem;
+    width: 100%;
+    max-width: 100%;
+    margin-left: -2vw;
+    margin-right: -2vw;
+    padding: 0.7rem 2vw;
+    font-size: 1.05rem;
+    overflow-x: auto;
+    box-sizing: border-box;
+  }
+  .code-python h3,
+  .language-python {
+    max-width: 100%;
     overflow-x: auto;
     box-sizing: border-box;
   }
@@ -141,7 +150,7 @@ nav a {
 .BG1 p {
   font-size: 120%;
   line-height: 1.6;
-  text-align: justify;
+  text-align: center;
   margin: auto;
 }
 
