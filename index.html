@@ -25,8 +25,10 @@
                 <ul class="nav-ul">
                     <li><a href="#welcome" class="nav-accueil">Accueil</a></li>
                     <li><a href="#projects" class="nav-projets">Projets</a></li>
+                     <li><a href="#skills" class="nav-skills">Mes Skills</a></li>
                     <li><a href="#about" class="nav-a-propos">À propos</a></li>
                     <li><a href="#contact" class="nav-contact">Contact</a></li>
+            
                 </ul>
             
         </nav>   
@@ -141,6 +143,31 @@
       </div>
     </div>
   </div>
+
+  <div class="certifications">
+    <h3 class="certifications-title">Certifications</h3>
+    <div id="certif-img-container">
+      <img id="certif-img" src="assets/certif1.png" alt="Certification 1" style="width:100%;max-width:500px;opacity:1;transition:opacity 2s;" />
+    </div>
+    <script>
+      const certifImgs = [
+        'assets/certif_anssi.png',
+        'assets/certif_cyberini.png'
+      ];
+      let certifCurrent = 0;
+      const certifImg = document.getElementById('certif-img');
+      function showNextCertif() {
+        certifImg.style.opacity = 0;
+        setTimeout(() => {
+          certifCurrent = (certifCurrent + 1) % certifImgs.length;
+          certifImg.src = certifImgs[certifCurrent];
+          certifImg.style.opacity = 1;
+        }, 2000);
+      }
+      setInterval(showNextCertif, 8000);
+    </script>
+    
+   
 </section>
 
 
